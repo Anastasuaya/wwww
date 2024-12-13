@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ане</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        background-image: url(backround/bacground.jpg);
+        background-size: cover;
+        background-position: 0 0;
+        /* animation: gradient 10s ease infinite; */
+      }
+      h1 {
+        color: #000;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #valentine-question {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #000;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 1s;
+      }
+      #yes-btn {
+        background-color: #f69;
+        color: #fff;
+      }
+      #no-btn {
+        background-color: #f69;
+        color: #fff;
+        margin-left: 10px;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p id="valentine-question">Ты приедешь в Сочи?</p>
+    <button id="yes-btn" class="btn">Да</button>
+    <button id="no-btn" class="btn">Нет</button>
+    <script>
+      let computed = document.getElementById("no-btn").getBoundingClientRect()
+      document.getElementById("no-btn").addEventListener("click", function () {
+        let t = Math.floor(Math.random() * (window.innerWidth))
+        let n = Math.floor(Math.random() * (window.innerHeight))
+        // (e.style.position = "absolute"),
+        // (e.style.left = t + "px"),
+        // (e.style.top = n + "px")
+        let x = t-computed.left-90<-computed.left+10?0:t-computed.left-90
+        let y = n-computed.top-60<-computed.top+10?0:n-computed.top-60
+        this.style.transform = `translate(${x}px,${y}px)`
+      })
+      document.getElementById("yes-btn").addEventListener("click", function () {
+        document.getElementById("valentine-question").innerText = "Ураа, спасибо!"
+        document.getElementById("yes-btn").style.display = "none"
+        document.getElementById("no-btn").style.display = "none"
+      })
+    </script>
+  </body>
+</html>
