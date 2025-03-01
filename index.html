@@ -58,7 +58,7 @@
     </style>
   </head>
   <body>
-    <p id="valentine-question">Ты приедешь в Сочи?</p>
+    <p id="valentine-question">Франциск, пошли на свидание?</p>
     <button id="yes-btn" class="btn">Да</button>
     <button id="no-btn" class="btn">Нет</button>
     <script>
@@ -74,7 +74,7 @@
         this.style.transform = `translate(${x}px,${y}px)`
       })
       document.getElementById("yes-btn").addEventListener("click", function () {
-        document.getElementById("valentine-question").innerText = "Ураа, спасибо!"
+        document.getElementById("valentine-question").innerText = "Заеду за тобой в 6, любимый"
         document.getElementById("yes-btn").style.display = "none"
         document.getElementById("no-btn").style.display = "none"
       })
